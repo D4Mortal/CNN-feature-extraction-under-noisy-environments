@@ -1,0 +1,20 @@
+tried relu with cnn, however it suffered detrimentally from dying relu and only predicted one class. Leaky relu was also integrated in attept to tackle dying relu
+however it still failed to generalize properly. Tanh and sigmoid was also tested, and tanh was used as it suffers less from information loss through back prop
+
+included batch normalization to tackle overfitting, improve generalization
+
+random dropout rate of 0.4 was added between convolutional layers was added to tackle overfitting
+
+resized the image to 256*256 to faster training, applied random flips and normaliztion to help generalization
+also tried resizing to 180*144, maintaining the aspect ratio, however too much information was lost and did not learn well
+tried resizing to 380 * 288, it was able to learn to generalize and learned must faster
+
+tried max pooling every layer, did not work very well as it fails to recognise surprise and sad class, last convolutional layers no longer has pooling
+as they represent high level features that we do not want to lose.
+
+a kernel size of 3 was chosen for the cnn network, as the original image was already at a relatively low quality, we do want to lose information and further
+reduce quality
+
+padding was tried but did not help with the final performance, it did nothing to aid detecting facial emotions as it only padds out edges where there were rarely
+any human expressions
+
